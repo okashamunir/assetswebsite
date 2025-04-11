@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Embedded Image Demo</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .image-container {
+      margin: 40px 0;
+      border: 1px solid #eee;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    h1 {
+      color: #333;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 10px auto;
+      display: block;
+    }
+    .url {
+      background: #f5f5f5;
+      padding: 10px;
+      font-family: monospace;
+      margin: 10px 0;
+      word-break: break-all;
+    }
+    button {
+      background: #0366d6;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    button:hover {
+      background: #0255b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Direct Image Access</h1>
+  <p>The images below are embedded directly in this HTML file or loaded from known-working URLs.</p>
+  
+  <div class="image-container">
+    <h2>Deal 1 Image (Working Reference)</h2>
+    <img src="images/deal1.jpeg" alt="Deal 1">
+    <div class="url">https://assetswebsite-rhouxb4cm-okashamunirs-projects.vercel.app/embedded-image.html#deal1</div>
+    <button onclick="showImage('deal1')">View Full Image</button>
+  </div>
+  
+  <div class="image-container">
+    <h2>Smash Deal Image (Placeholder)</h2>
+    <!-- This is a placeholder with a red rectangle that simulates the image -->
+    <div style="width: 100%; height: 300px; background-color: #f44336; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+      Smash Deal Image Placeholder
+    </div>
+    <div class="url">https://assetswebsite-rhouxb4cm-okashamunirs-projects.vercel.app/embedded-image.html#smash</div>
+    <button onclick="showImage('smash')">View Full Image</button>
+  </div>
+
+  <script>
+    function showImage(type) {
+      // Gets current hash or sets it if needed
+      if (window.location.hash === '#' + type) {
+        // If we're already on this image view, show just that image at full size
+        document.body.innerHTML = '';
+        let img = document.createElement('img');
+        
+        if (type === 'deal1') {
+          img.src = 'images/deal1.jpeg';
+        } else if (type === 'smash') {
+          // The placeholder colored rectangle
+          document.body.style.margin = 0;
+          document.body.style.padding = 0;
+          document.body.style.height = '100vh';
+          document.body.style.background = '#f44336';
+          document.body.innerHTML = '<div style="display: flex; height: 100%; align-items: center; justify-content: center; color: white; font-size: 36px;">Smash Deal Image</div>';
+          return;
+        }
+        
+        img.style.maxWidth = '100%';
+        img.style.height = 'auto';
+        img.style.margin = '0';
+        img.style.padding = '0';
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        document.body.appendChild(img);
+      } else {
+        // Navigate to the hash
+        window.location.hash = type;
+      }
+    }
+    
+    // Handle initial hash if present
+    if (window.location.hash) {
+      const type = window.location.hash.substring(1);
+      setTimeout(function() {
+        showImage(type);
+      }, 100);
+    }
+  </script>
+</body>
+</html> 
