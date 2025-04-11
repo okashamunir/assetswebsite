@@ -52,35 +52,78 @@
       border-left: 4px solid #ffc107;
       margin: 20px 0;
     }
+    .direct-links {
+      margin-top: 30px;
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .direct-links ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .direct-links li {
+      margin-bottom: 8px;
+    }
+    .direct-links a {
+      color: #0366d6;
+      text-decoration: none;
+    }
+    .direct-links a:hover {
+      text-decoration: underline;
+    }
+    .copy-button {
+      background: #0366d6;
+      color: white;
+      border: none;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .copy-button:hover {
+      background: #0255b3;
+    }
   </style>
 </head>
 <body>
   <h1>Image Hosting Service</h1>
   
-  <p>This is a static image hosting service. Images are stored in the public directory and can be accessed via their URLs.</p>
+  <p>This is a static image hosting service. Images are stored in the public directory and can be accessed via their direct URLs.</p>
   
   <div class="note">
-    <strong>Note:</strong> This is a demo service. To upload images, place them in the <code>/public/images</code> directory and deploy to Vercel.
-    After deployment, your images will be available at <code>https://your-vercel-domain.com/images/filename.jpg</code>
+    <strong>Note:</strong> For Flutter apps, use the direct image URLs below to avoid any whitespace or extra elements.
   </div>
   
-  <h2>Current Images</h2>
+  <div class="direct-links">
+    <h2>Direct Image Links (Clean URLs for Flutter)</h2>
+    <ul>
+      <li>
+        <a href="/images/deal1.jpeg" target="_blank">deal1.jpeg</a>
+        <code>https://assetswebsite-rhouxb4cm-okashamunirs-projects.vercel.app/images/deal1.jpeg</code>
+        <button class="copy-button" onclick="copyToClipboard('https://assetswebsite-rhouxb4cm-okashamunirs-projects.vercel.app/images/deal1.jpeg')">Copy</button>
+      </li>
+    </ul>
+  </div>
+  
+  <h2>Image Gallery</h2>
   <div class="image-gallery">
-    <!-- Example image card -->
     <div class="image-card">
       <img src="/images/deal1.jpeg" alt="Deal 1">
       <div class="image-info">
         <div>deal1.jpeg</div>
-        <div class="image-url">https://[your-domain]/images/deal1.jpeg</div>
+        <div class="image-url">https://assetswebsite-rhouxb4cm-okashamunirs-projects.vercel.app/images/deal1.jpeg</div>
       </div>
     </div>
-    <!-- More image cards will appear here when you add images -->
   </div>
 
   <script>
-    // This script would typically scan the /public/images directory,
-    // but since this is a static site, you'll need to manually update the gallery
-    // or implement server-side functionality which is beyond the scope of this demo
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('URL copied to clipboard!');
+      });
+    }
   </script>
 </body>
 </html>
