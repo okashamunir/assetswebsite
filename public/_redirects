@@ -1,0 +1,3 @@
+# Ensure images directory is publicly accessible
+/images/*  /images/:splat  200
+/* /index.html 200 
