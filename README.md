@@ -1,32 +1,56 @@
-# Image Hosting Service
+# Image Hosting for Flutter
 
-A simple static image hosting service for deployment on Vercel.
+A simple Next.js application for hosting and serving images for use in Flutter applications.
+
+## Features
+
+- Easy browsing of all hosted images
+- Direct image URLs for Flutter applications
+- Copy-paste Flutter code snippets
+- Raw image access for direct embedding
 
 ## How to Use
 
-1. **Add Images**: Place your image files in the `public/images` directory.
-2. **Deploy to Vercel**: Push this repository to GitHub and connect it to Vercel, or use the Vercel CLI to deploy directly.
-3. **Access Your Images**: After deployment, your images will be available at:
-   ```
-   https://your-vercel-domain.com/images/your-image-filename.jpg
-   ```
+1. Visit the home page to see all available images
+2. Click on an image to view its details
+3. Copy the direct URL for use in your Flutter app
+4. Use the Flutter code snippet provided
 
-## Local Development
+## Image URLs
 
-To run the site locally:
+The images can be accessed directly at:
 
-```bash
-npm install
-npm run dev
+```
+https://your-vercel-domain.com/images/filename.jpg
 ```
 
-The site will be available at http://localhost:3000.
+For raw image access without any HTML wrapping:
+
+```
+https://your-vercel-domain.com/raw/filename.jpg
+```
+
+## In Your Flutter App
+
+```dart
+Image.network(
+  'https://your-vercel-domain.com/images/filename.jpg',
+  fit: BoxFit.cover,
+)
+```
 
 ## Adding New Images
 
-Simply add new images to the `public/images` directory and they will be accessible after deployment.
+To add new images:
 
-## Notes
+1. Add image files to the `public/images` directory
+2. Commit and push to GitHub
+3. Vercel will automatically deploy the changes
 
-- This is a basic static hosting solution. For more advanced features like uploading through a UI, you would need to implement server-side functionality.
-- The Vercel deployment gives you a free domain (`your-project.vercel.app`) and CDN distribution of your images. 
+## Local Development
+
+```bash
+npm run dev
+```
+
+The app will be available at http://localhost:3000. 

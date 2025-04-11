@@ -1,0 +1,100 @@
+.container {
+  min-height: 100vh;
+  padding: 0 1rem;
+}
+
+.main {
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0 0 2rem 0;
+  line-height: 1.15;
+  font-size: 2rem;
+  text-align: center;
+  word-break: break-all;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 2rem;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.urlContainer {
+  margin-bottom: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.urlContainer p {
+  margin-bottom: 0.5rem;
+}
+
+.url {
+  display: block;
+  padding: 1rem;
+  background: #f7f7f7;
+  border-radius: 5px;
+  font-size: 1rem;
+  overflow-x: auto;
+  word-break: break-all;
+  margin-bottom: 1rem;
+}
+
+.copyButton {
+  padding: 0.5rem 1rem;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.copyButton:hover {
+  background-color: #005bb5;
+}
+
+.flutterCode {
+  width: 100%;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.flutterCode pre {
+  background: #f7f7f7;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.flutterCode code {
+  font-family: monospace;
+  white-space: pre;
+}
+
+.backLink {
+  display: inline-block;
+  margin-top: 2rem;
+  color: #0070f3;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+} 
